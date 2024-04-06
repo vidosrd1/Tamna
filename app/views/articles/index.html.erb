@@ -41,11 +41,9 @@
   <% end %>
   <br />
   <% if @pagy.count > @pagy.items %>
-  <hr />
-  <div class="mt-1">
-    <%== pagy_bootstrap_nav(@pagy) %>
+  <div class="mt-10">
+    <%== pagy_nav(@pagy) %>
   </div>
-  <hr />
   <% end %>
   <br />
   <div id="articles" class="min-w-full">
@@ -83,14 +81,12 @@
     </div>
     <% end %>
   </div>
-  <br/>
   <% if @pagy.count > @pagy.items %>
-  <hr />
-  <div class="mt-1">
-    <%== pagy_bootstrap_nav(@pagy) %>
+  <div class="mt-10">
+    <%== pagy_nav(@pagy) %>
   </div>
-  <hr />
   <% end %>
+  <br/>
   <div class="flex justify-between items-center">
     <%= link_to 'New article', new_article_path,
     class: "rounded-lg py-3 px-4 bg-blue-600
