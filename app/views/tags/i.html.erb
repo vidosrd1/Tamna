@@ -1,0 +1,9 @@
+<% if @pagy.count > @pagy.items %>
+<hr />
+<div class="mt-1">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+<hr />
+<% end %>
+
+<%= render @tags %>

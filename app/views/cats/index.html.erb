@@ -1,0 +1,67 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <br />
+  <div class="flex justify-between items-center">
+    <h1 class="dark:text-slate-400 font-bold text-4xl">
+      Categories</h1>
+    <% if user_signed_in? %>
+    <%= link_to 'New category', new_cat_path,
+    class: "rounded-lg py-3 px-4 bg-blue-600
+    text-white block font-medium" %>
+    <% end %>
+  </div>
+  <br />
+  <div id="cats" class="min-w-full">
+    <table>
+      <thead>
+        <tr>
+          <th class="dark:text-slate-400">Name</th>
+          <th style="width:10px; heigh:auto"></th>
+          <th class="dark:text-slate-400 margin:10px; padding-left:10px;
+          padding-right:10px;">Posts</th>
+          <th style="width:10px; heigh:auto"></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @cats.each do |cat| %>
+          <tr>
+            <td>
+              <h5>
+                <strong class="block 1font-medium mb-1">
+                  <a href="/cats/<%= cat.id %>",
+                  class="nav-link"><%= cat.name %></a>
+                </strong>
+              </h5>
+            </td>
+            <td style="padding-top:10px; padding-right:0px;
+            padding-bottom:20px; padding-left:0">
+            <td class="vertical-menu">
+              <ul class="1vertical-menu">
+            <% cat.posts.each do |post| %>
+              <li class="vertical-menu">
+                <a href="/posts/<%= post.id %>",
+                class="nav-link">
+                <%= truncate(strip_tags(post.title.to_s),
+                length:180) %></a>
+                <br />
+              </li>
+            <% end %>
+              </ul>
+              <br />
+            </td>
+            <td style="width:7px; heigh:auto"></td>
+            <% if user_signed_in? %>
+            <td><%= link_to 'Edit', edit_cat_path(cat) %></td>
+            <% end %>
+            <td class="" style="width:10px; heigh:auto"></td>
+            <td><%= link_to 'Show', cat %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

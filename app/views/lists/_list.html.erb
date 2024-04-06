@@ -1,0 +1,26 @@
+<div id="<%= dom_id list %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= list.name %>
+  </p>
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= list.title %>
+  </p>
+  <hr />
+  <% if list.image.content_type.in?(%w[image/jpeg image/png image/jpg]) %>
+    <%= link_to image_tag(list.image,
+    style:"width:300px, height:300px"), list.image %>
+  <% end %>
+  <hr />
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Body:</strong>
+    <%= list.body %>
+  </p>
+  <br />
+  <% if action_name != "show" %>
+    <%= link_to "Show this list", list, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this list", edit_list_path(list), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

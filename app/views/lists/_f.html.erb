@@ -1,0 +1,41 @@
+<%= form.select :art_id,
+options_for_select(Art.all.map {
+  |art| [art.name, art.id]
+  }, :prompt => "Select one!") %>
+
+<%= select_tag(:category_id,
+options_for_select(@categories,
+selected: @post.category_id),
+:prompt => "Select one!") %>
+  <%= select_tag(:art_id,
+  options_from_collection_for_select(
+  Art.all, :id, :name),
+  include_blank: "Select Art") %>
+
+  <%= select_tag(:art_id,
+  options_for_select(@arts ||
+  Art.all.map { |c| [ c.name, c.id ] }),
+  :prompt => "Select one!") %>
+
+<%= select_tag(:art_id,
+options_for_select(@arts)
+, :prompt => "Select one!") %>
+
+<%= form.select :art_id,
+options_for_select(@arts.collect
+{|art| [art.name, art.id]}),
+{ class: "some_class" } %>
+
+<%=form.select :art_id, @arts, {}, {required: true,
+class: 'form-control form-control-lg custom-select'}%>
+
+<%= select_tag(:art_id,
+options_for_select(Art.all.map {
+|art| [art.name, art.id]
+}), :prompt => "Select one!") %>
+
+<%= form.select(:art, xxxxxx,
+{:include_blank => 'Choose a car',
+:disabled => 'Choose a car'}) %>
+<%= form.select(:name, art_names_with_blank,
+{disabled: '', selected: ''}) %>
