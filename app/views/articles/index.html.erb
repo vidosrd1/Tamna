@@ -83,11 +83,9 @@
   </div>
   <br/>
   <% if @pagy.count > @pagy.items %>
-  <hr />
-  <div class="mt-1">
-    <%== pagy_bootstrap_nav(@pagy) %>
+  <div class="mt-10">
+    <%== pagy_nav(@pagy) %>
   </div>
-  <hr />
   <% end %>
   <div class="flex justify-between items-center">
     <%= link_to 'New article', new_article_path,
