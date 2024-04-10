@@ -30,7 +30,8 @@
     <h5 class="block 1font-medium mb-1 text-2xl">
       <%= @list.name %></h5>
     <strong class="dark:text-slate-400 block font-medium mb-1">
-      Art: <%= @list.art.name %>
+      <a href="/arts/<%= @list.art.id %>",
+        class="nav-link">Art: <%= @list.art.name %></a>
     </strong>
     <br />
     <div id="navbar" class="1collapse">
