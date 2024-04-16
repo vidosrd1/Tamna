@@ -10,6 +10,7 @@
     text-white block font-medium" %>
   </div>
   <br />
+  <% if @articles.first != nil %>
   <h5>
     <a href="/articles/<%= @articles.first.id %>",
     class="nav-link"><%= @articles.first.title %></a>
@@ -19,6 +20,7 @@
     <%= link_to image_tag(@articles.first.image,
     style:"width:560px; heigh:auto; nav-link; nav-right;"),
     @articles.first.image %>
+  <% end %>
   <% end %>
   <br />
   <%= form_with(url: articles_path, method: :get,
