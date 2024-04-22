@@ -1,3 +1,12 @@
+@pagy.count.nil? || .eql? equal? <=> >=
+ && h.status == "?query"
+h.ab_template.AB_filterParent.nil? || h.ab_template.AB_filterParent == 0
+@pagy.count > @pagy.items
+<% if "?query" || "?quer" %>
+== 0 && h.status != 'geo_enabled'
+<% if "?query" %>
+<% else @pagy.count > @pagy.items %>
+<% if !(@pagy.count > @pagy.items != "?query") %>
 <% if @pagy.count > @pagy.items %>
 <div class="mt-10">
   <%== pagy_bootstrap_nav(@pagy) %>
