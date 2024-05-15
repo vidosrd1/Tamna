@@ -1,4 +1,8 @@
 class Article < ApplicationRecord
+  # Scopes
+  default_scope {order(created_at: :desc)}
+  scope :ordered, -> { order(created_at: :desc) }
+  #scope :recent_first, -> {order(created_at: :desc)}
   #async_pluck
   belongs_to :user
   has_many :taggables, dependent: :destroy

@@ -10,7 +10,9 @@ class ArticlesController < ApplicationController
     end
     @pagy, @articles = pagy(@articles)
     if params[:query].present?
-      @articles = Article.where("title LIKE ?", "%#{params[:query]}%")
+      @articles = #Article.ordered.paginate(:page => params[:page], :per_page => 10)
+      #Article.recent_first.paginate(:page => params[:page], :per_page => 10)
+      Article.where("title LIKE ?", "%#{params[:query]}%")
     end
 
     if turbo_frame_request?

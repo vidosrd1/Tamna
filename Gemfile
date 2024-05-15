@@ -31,6 +31,7 @@ gem "web-console", group: :development
 gem 'friendly_id', '~> 5.5', '>= 5.5.1'
 #gem "friendly_id", "~> 5.4"
 gem "bcrypt"
+gem 'pg_search', '~> 2.3', '>= 2.3.6'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]

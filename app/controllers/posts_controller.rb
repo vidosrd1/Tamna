@@ -50,6 +50,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def self.next(post)
+    where('id < ?', post.id).last
+  end
+
+  def self.previous(post)
+    where('id > ?', post.id).first
+  end
+
   private
     def set_post
       @post = Post.find(params[:id])

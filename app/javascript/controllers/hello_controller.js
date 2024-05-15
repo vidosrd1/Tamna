@@ -8,4 +8,13 @@ export default class extends Controller {
   handleClick() {
     this.element.textContent = "Clicked!"
   }
+
+  load() {
+    console.log(this.userNameValue);
+    fetch(
+     `https://api.dicebear.com/6.x/bottts-neutral/svg?seed=${this.userNameValue}`
+    )
+    .then((response) => response.text())
+    .then((html) => (this.element.innerHTML = html));
+  }
 }

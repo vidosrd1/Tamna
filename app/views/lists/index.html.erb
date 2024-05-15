@@ -9,33 +9,30 @@
     text-white block font-medium" %>
   </div>
   <br />
-  <%= form_with(url: lists_path, method: :get,
-  data: {controller: "search-form",
-  turbo_frame: "lists", turbo_action: "advance"}) do |form| %>
-    <%= form.label :query, "Search by list name:",
+<%= form_with(url: lists_path, method: :get,
+data: {turbo_frame: "lists",
+turbo_action: "advance"}) do |form| %>
+  <%= form.label :query, "Search by list name:",
     class: "block mb-2" %>
     <div class="flex space-x-3">
-      <%= form.text_field :query, placeholder:"Search",
-      class: "py-2 px-4
+      <%= form.text_field :query, class: "py-2 px-5
       rounded border ring-0 focus:ring-4
       focus:ring-orange-100 focus:shadow-none
       dark:text-slate-800 focus:border-orange-500 focus:outline-none",
       data: {action: "input->search-form#search"} %>
 
       <%= form.submit 'Search', class: "px-4 py-2 font-medium
-bg-orange-400 text-neutal-900 rounded flex items-center
-cursor-pointer hover:bg-orange-600 focus:ring-4 ring-0
-text-gray-900 hover:text-gray-100 focus:ring-orange-100" %>
+      bg-orange-400 text-neutal-900 rounded flex items-center
+      cursor-pointer hover:bg-orange-600 focus:ring-4 ring-0
+      text-gray-900 hover:text-gray-100 focus:ring-orange-100" %>
     </div>
-  <% end %>
-  <% if user_signed_in? %>
   <% end %>
   <% if (@pagy.count > @pagy.items) != 'search?query' %>
   <div class="mt-10">
     <%== pagy_nav(@pagy) %>
   </div>
   <% end %>
-  <div id="lists" class="min-w-full">
+  <div id="lists">
     <% @lists.each do |list| %>
     <div class="row mt-4 clearfix">
       <div class="col-8 col-sm-8 col-md-9 col-lg-9">
@@ -61,9 +58,8 @@ text-gray-900 hover:text-gray-100 focus:ring-orange-100" %>
       </div>
     </div>
     <% end %>
-    <br />
   </div>
-  <% if @pagy.count > @pagy.items != "?query" %>
+  <% if @pagy.count > @pagy.items %>
   <div class="mt-10">
     <%== pagy_nav(@pagy) %>
   </div>
@@ -76,6 +72,5 @@ text-gray-900 hover:text-gray-100 focus:ring-orange-100" %>
     text-white block font-medium" %>
   </div>
   <% end %>
-  <br />
   <br />
 </div>
