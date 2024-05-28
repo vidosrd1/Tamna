@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.0"
+ruby "3.3.1"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sprockets-rails"
 gem "pg", "~> 1.1"
@@ -16,15 +16,15 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
-gem 'pagy', '~> 6.2'
-gem 'devise', '~> 4.9', '>= 4.9.3'
-gem 'madmin', '~> 1.2', '>= 1.2.8'
+gem 'pagy', '~> 8.4'
+gem 'devise', '~> 4.9', '>= 4.9.4'
+gem 'madmin', '~> 1.2', '>= 1.2.10'
 
 gem "appraisal"
 gem "byebug", group: [:development, :test]
 gem "standardrb", group: [:development, :test]
 gem 'ffaker', '~> 2.23'
-gem "name_of_person", "~> 1.1", ">= 1.1.1"
+gem 'name_of_person', '~> 1.1', '>= 1.1.3'
 gem "simplecov", group: :test
 gem "web-console", group: :development
 #gem "webpacker", "~> 5.2", ">= 5.2.1"

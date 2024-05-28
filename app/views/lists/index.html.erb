@@ -57,7 +57,9 @@ turbo_action: "advance"}) do |form| %>
         <% end %>
       </div>
     </div>
+    <br />
     <% end %>
+    <br />
   </div>
   <% if @pagy.count > @pagy.items %>
   <div class="mt-10">
@@ -65,6 +67,7 @@ turbo_action: "advance"}) do |form| %>
   </div>
   <br />
   <% end %>
+  <br /><hr /><br />
   <% if user_signed_in? %>
   <div class="flex justify-between items-center">
     <%= link_to 'New list', new_list_path,
